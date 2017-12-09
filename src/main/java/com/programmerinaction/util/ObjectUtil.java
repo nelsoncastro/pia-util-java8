@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.function.*;
 
 /**
- * Classe utilitária que contém métodos estáticos que operação sobre objeto java.
+ * Classe utilitária que contém métodos estáticos para manipular objetos java.
  *
  * @author <a href='http://github.com/nelsoncastro'>Nelson Castro</a>
  * @since 1.0
