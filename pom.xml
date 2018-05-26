@@ -6,11 +6,18 @@
     <groupId>com.programmerinaction</groupId>
 
     <artifactId>pia-util-java8</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>PIA Util Java 8</name>
     <url>http://programmerinaction.com</url>
+
+    <scm>
+        <url>https://github.com/nelsoncastro/pia-util-java8</url>
+        <connection>scm:git:git://github.com/nelsoncastro/pia-util-java8.git</connection>
+        <developerConnection>scm:git:git@github.com:nelsoncastro/pia-util-java8.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 
     <repositories>
         <repository>
@@ -31,10 +38,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
     </dependencies>
 
@@ -94,7 +106,8 @@
 
         <!-- Test Dependencies -->
 
-        <junit.version>4.12</junit.version>
+        <junit.version>5.1.0</junit.version>
+        <slf4j.version>1.7.25</slf4j.version>
     </properties>
 
 </project>
