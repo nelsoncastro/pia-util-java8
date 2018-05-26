@@ -15,8 +15,17 @@
         <url>https://github.com/nelsoncastro/pia-util-java8</url>
         <connection>scm:git:git://github.com/nelsoncastro/pia-util-java8.git</connection>
         <developerConnection>scm:git:git@github.com:nelsoncastro/pia-util-java8.git</developerConnection>
-        <tag>pia-util-java8-1.0.1</tag>
+        <tag>HEAD</tag>
     </scm>
+
+    <developers>
+        <developer>
+            <id>nelson.castro</id>
+            <email>nelsoncastro.developer@gmail.com</email>
+            <name>Nelson Castro</name>
+            <url>https://github.com/nelsoncastro</url>
+        </developer>
+    </developers>
 
     <repositories>
         <repository>
