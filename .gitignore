@@ -7,3 +7,7 @@ target/
 
 # JRebel
 rebel.xml
+
+# Git Release
+pom.xml.releaseBackup
+release.properties
