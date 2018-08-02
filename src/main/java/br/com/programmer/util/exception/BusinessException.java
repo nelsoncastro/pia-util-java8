@@ -1,6 +1,6 @@
 /*
  * NELSON PEREIRA DE CASTRO
- * Copyright 2018, NELSON PEREIRA DE CASTRO, 
+ * Copyright 2018, NELSON PEREIRA DE CASTRO,
  * and individual contributors as indicated by the @authors tag
  *
  * This is free software; you can redistribute it and/or modify it
@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package com.programmerinaction.util.exception;
+package br.com.programmer.util.exception;
 
 /**
  * Essa classe representa uma exceção de negócio.

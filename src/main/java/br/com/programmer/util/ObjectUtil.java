@@ -18,9 +18,9 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package com.programmerinaction.util;
+package br.com.programmer.util;
 
-import com.programmerinaction.util.exception.BusinessException;
+import br.com.programmer.util.exception.BusinessException;
 
 import java.util.Objects;
 import java.util.function.*;

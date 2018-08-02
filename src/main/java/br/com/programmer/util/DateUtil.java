@@ -1,6 +1,6 @@
 /*
  * NELSON PEREIRA DE CASTRO
- * Copyright 2018, NELSON PEREIRA DE CASTRO, 
+ * Copyright 2018, NELSON PEREIRA DE CASTRO,
  * and individual contributors as indicated by the @authors tag
  *
  * This is free software; you can redistribute it and/or modify it
@@ -18,7 +18,7 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package com.programmerinaction.util;
+package br.com.programmer.util;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -29,6 +29,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import static java.util.Objects.nonNull;
 import static java.util.Objects.requireNonNull;
 
 /**
@@ -37,7 +38,11 @@ import static java.util.Objects.requireNonNull;
  * @author <a href='http://github.com/nelsoncastro'>Nelson Castro</a>
  * @since 1.0
  */
-public class DateUtil {
+public final class DateUtil {
+
+    private DateUtil() {
+        throw new AssertionError("No DateUtil instances for you!");
+    }
 
     /**
      * <p>Converte {@link java.util.Date} em {@link java.time.LocalDate}</p>
@@ -171,7 +176,7 @@ public class DateUtil {
     private static String formatLocalDateTime(LocalDateTime localDateTime, FormatStyle style) {
         requireNonNull(localDateTime, "localDate");
         requireNonNull(style, "style");
-        return localDateTime.format(DateTimeFormatter.ofLocalizedDate(style).withLocale(new Locale("pt", "br")));
+        return localDateTime.format(DateTimeFormatter.ofLocalizedDate(style).withLocale(getDefaultLocale()));
     }
 
     /**
@@ -184,7 +189,7 @@ public class DateUtil {
     private static String formatLocalDate(LocalDate localDate, FormatStyle style) {
         requireNonNull(localDate, "localDate");
         requireNonNull(style, "style");
-        return localDate.format(DateTimeFormatter.ofLocalizedDate(style).withLocale(new Locale("pt", "br")));
+        return localDate.format(DateTimeFormatter.ofLocalizedDate(style).withLocale(getDefaultLocale()));
     }
 
     /**
@@ -205,7 +210,17 @@ public class DateUtil {
      * @param locale
      * @return
      */
-    private static Calendar getCalendar(Locale locale){
-        return locale != null ? Calendar.getInstance(locale) : Calendar.getInstance();
+    private static Calendar getCalendar(Locale locale) {
+        return nonNull(locale) ? Calendar.getInstance(locale) : Calendar.getInstance();
     }
+
+    /**
+     * <p>Obtém Locale atual da JVM. Caso o Locale padrão seja {@code null} . </p>
+     *
+     * @return {@link Locale}
+     */
+    private static Locale getDefaultLocale() {
+        return new Locale("pt", "br");
+    }
+
 }
