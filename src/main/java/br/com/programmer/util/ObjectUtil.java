@@ -1,6 +1,6 @@
 /*
  * NELSON PEREIRA DE CASTRO
- * Copyright 2018, NELSON PEREIRA DE CASTRO, 
+ * Copyright 2018, NELSON PEREIRA DE CASTRO,
  * and individual contributors as indicated by the @authors tag
  *
  * This is free software; you can redistribute it and/or modify it
