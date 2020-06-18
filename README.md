@@ -1,4 +1,5 @@
 # Java 8 utility classes
+> This repository contains code related to my Java 8 utility classes.
 
 ![Java-8](https://user-images.githubusercontent.com/4312368/84963559-1cc42180-b0e0-11ea-8514-f58a37c0bbf1.png)
 
