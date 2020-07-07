@@ -16,4 +16,4 @@ Nelson Castro – [@nelsonbsbdf](https://twitter.com/nelsonbsbdf) – nelsoncast
 5. Create a new Pull Request
 
 
-[![YourActionName Actions Status](https://github.com/{userName}/{repoName}/workflows/{workflowName}/badge.svg)](https://github.com/{userName}/{repoName}/actions)
+[![YourActionName Actions Status](https://github.com/nelsoncastro/pia-util-java8/workflows/Java-CI-Maven/badge.svg)](https://github.com/nelsoncastro/pia-util-java8/actions)
