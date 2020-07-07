@@ -14,3 +14,6 @@ Nelson Castro – [@nelsonbsbdf](https://twitter.com/nelsonbsbdf) – nelsoncast
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
+
+
+https://github.com/nelsoncastro/pia-util-java8/workflows/maven/badge.svg
