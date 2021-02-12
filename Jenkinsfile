@@ -6,9 +6,9 @@ pipeline {
 
   }
   stages {
-    stage('') {
+    stage('Building') {
       steps {
-        sh ' mvn --version'
+        sh ' mvn clean install'
       }
     }
 
