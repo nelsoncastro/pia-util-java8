@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Building') {
       steps {
-        sh ' mvn --version'
+        sh ' mvn clean package'
       }
     }
 
