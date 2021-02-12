@@ -10,7 +10,6 @@ pipeline {
     stage('Building') {
       steps {
         sh ' mvn --version'
-        cleanWs(cleanWhenSuccess: true, cleanWhenAborted: true, cleanWhenFailure: true)
       }
     }
 
