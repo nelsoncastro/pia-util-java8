@@ -1,11 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven:3.6.3-openjdk-8'
-      args '-v /root/.m2:/root/.m2'
-    }
-
-  }
+  agent any
   stages {
     stage('build') {
       steps {
