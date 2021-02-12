@@ -9,6 +9,7 @@ pipeline {
     stage('Building') {
       steps {
         sh ' mvn clean install'
+        cleanWs(cleanWhenSuccess: true, cleanWhenAborted: true, cleanWhenFailure: true)
       }
     }
 
