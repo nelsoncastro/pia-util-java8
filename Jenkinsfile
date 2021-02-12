@@ -9,7 +9,7 @@ pipeline {
     stage('build') {
       steps {
         echo 'Starting Build Step'
-        sh 'mvn clean install -DskipTests'
+        sh ' sh \'docker run hello-world\''
         echo 'Build Step Completed'
       }
     }
