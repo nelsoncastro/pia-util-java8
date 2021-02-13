@@ -7,9 +7,9 @@ pipeline {
 
   }
   stages {
-    stage('Building') {
+    stage('Release') {
       steps {
-        sh ' mvn clean install'
+        sh 'mvn git-release:execute'
         cleanWs()
       }
     }
