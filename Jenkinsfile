@@ -16,13 +16,6 @@ pipeline {
           }
         }
 
-        stage('Print Tester Credentials') {
-          steps {
-            echo "The tester is ${TESTER}"
-            sleep 10
-          }
-        }
-
         stage('Print build number') {
           steps {
             echo "This is build number ${BUILD_ID}"
@@ -36,8 +29,5 @@ pipeline {
   }
   tools {
     maven 'maven'
-  }
-  environment {
-    TESTER = 'Nelson'
   }
 }
