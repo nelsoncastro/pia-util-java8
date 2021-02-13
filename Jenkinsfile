@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
-        sh '"PATH = ${PATH}"'
+        sh 'printenv'
       }
     }
 
