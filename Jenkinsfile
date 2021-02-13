@@ -8,33 +8,18 @@ pipeline {
       }
     }
 
-    stage('Testing') {
-      parallel {
-        stage('SonarQube Test') {
-          steps {
-            withSonarQubeEnv('default') {
-              sh "mvn sonar:sonar"
-            }
-
-            timeout(time: 5, unit: 'MINUTES') {
-              waitForQualityGate abortPipeline: false
-            }
-
-          }
+    stage('Quality Gate') {
+      steps {
+        withSonarQubeEnv('default') {
+          sh 'mvn sonar:sonar'
         }
 
-        stage('Print build number') {
-          steps {
-            echo "This is build number ${BUILD_ID}"
-            sleep 20
-          }
+        timeout(time: 5, unit: 'MINUTES') {
+          waitForQualityGate true
         }
 
       }
     }
 
-  }
-  environment {
-    SONAR_SERVER_URL = 'http://192.168.128.4:9000'
   }
 }
