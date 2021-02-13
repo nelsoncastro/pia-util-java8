@@ -12,7 +12,7 @@ pipeline {
       parallel {
         stage('SonarQube Test') {
           steps {
-            sh 'mvn sonar:sonar'
+            sh "mvn sonar:sonar -Dsonar.host.url=${SONAR_SERVER_URL}"
           }
         }
 
@@ -26,5 +26,8 @@ pipeline {
       }
     }
 
+  }
+  environment {
+    SONAR_SERVER_URL = 'http://192.168.128.4:9000'
   }
 }
