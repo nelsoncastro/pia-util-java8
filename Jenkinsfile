@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '$M2_HOME/mvn clean install'
+        sh 'mvn clean install'
       }
     }
 
