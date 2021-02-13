@@ -13,7 +13,7 @@ pipeline {
         stage('SonarQube Test') {
           steps {
             withSonarQubeEnv('default') {
-              sh "mvn sonar:sonar -Dsonar.host.url=${SONAR_SERVER_URL}"
+              sh "mvn sonar:sonar"
             }
 
             timeout(time: 5, unit: 'MINUTES') {
