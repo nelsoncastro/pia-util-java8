@@ -1,12 +1,22 @@
 pipeline {
-  agent any
-  stages {
-    stage('Build') {
-      steps {
-        tool(name: 'maven', type: 'maven3')
-        sh 'mvn clean install'
-      }
+    agent any
+    tools { 
+        maven 'Maven3' 
     }
+    stages {
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                ''' 
+            }
+        }
 
-  }
+        stage ('Build') {
+            steps {
+                echo 'This is a minimal pipeline.'
+            }
+        }
+    }
 }
