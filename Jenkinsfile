@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('Testing') {
+      steps {
+        sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.128.4:9000'
+      }
+    }
+
   }
 }
