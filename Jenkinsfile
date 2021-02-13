@@ -17,5 +17,11 @@ pipeline {
       }
     }
 
+    stage('Quality Gate Result') {
+      steps {
+        waitForQualityGate true
+      }
+    }
+
   }
 }
