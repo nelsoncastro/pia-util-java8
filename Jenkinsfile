@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
-        sh 'printenv'
+        sh 'mvn --version'
       }
     }
 
