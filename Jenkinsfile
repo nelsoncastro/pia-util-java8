@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Buiding') {
+    stage('Building') {
       steps {
         echo 'Initiating maven build'
         sh 'mvn clean install -DskipTests'
@@ -12,7 +12,7 @@ pipeline {
       parallel {
         stage('SonarQube Test') {
           steps {
-            sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.128.4:9000'
+            sh 'mvn sonar:sonar'
           }
         }
 
@@ -26,8 +26,5 @@ pipeline {
       }
     }
 
-  }
-  tools {
-    maven 'maven'
   }
 }
