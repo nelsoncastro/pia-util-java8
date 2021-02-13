@@ -12,7 +12,14 @@ pipeline {
       parallel {
         stage('SonarQube Test') {
           steps {
-            sh "mvn sonar:sonar -Dsonar.host.url=${SONAR_SERVER_URL}"
+            withSonarQubeEnv(installationName: 'default') {
+              sh "mvn sonar:sonar -Dsonar.host.url=${SONAR_SERVER_URL}"
+            }
+
+            timeout(time: 5, unit: 'MINUTES') {
+              waitForQualityGate()
+            }
+
           }
         }
 
