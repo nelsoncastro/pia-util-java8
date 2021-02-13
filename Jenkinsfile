@@ -11,11 +11,19 @@ pipeline {
     stage('Quality Gate') {
       steps {
         withSonarQubeEnv('default') {
-          sh 'mvn sonar:sonar -Dsonar.webhooks.project=http://192.168.144.2/sonarqube-webhook'
+          sh 'mvn sonar:sonar'
         }
 
-        timeout(time: 5, unit: 'MINUTES') {
-          waitForQualityGate true
+      }
+    }
+
+    stage('Quality Gate Result') {
+      steps {
+        timeout(time: 1, unit: 'HOURS', activity: true) {
+          sh '''def qg = waitForQualityGate()
+if (qg.status != \'OK\') {
+  error "Pipeline aborted due to quality gate failure: ${qg.status}"
+}'''
         }
 
       }
