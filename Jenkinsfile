@@ -5,8 +5,7 @@ pipeline {
       steps {
         echo "${M2_HOME}"
         sh 'printenv'
-        sh "${M2_HOME}"/bin/mvn clean install
-        
+        sh '${M2_HOME}/bin/mvn clean install'        
       }
     }
 
