@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent none
   stages {
     stage('Build') {
       steps {
@@ -13,5 +13,8 @@ pipeline {
       }
     }
 
+  }
+  environment {
+    M2_HOME = '/Users/nelson/apache-maven-3.6.1'
   }
 }
