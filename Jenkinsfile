@@ -15,6 +15,6 @@ pipeline {
 
   }
   environment {
-    M2_HOME = '/usr/local/Cellar/maven/3.6.3/libexec/bin'
+    M2_HOME = '/Users/nelson/apache-maven-3.6.1'
   }
 }
