@@ -1,9 +1,9 @@
 pipeline {
-  agent none
+  agent any
   stages {
     stage('Build') {
       steps {
-        sh 'mvn clean install'
+        sh 'cd $M2_HOME && mvn clean install'
       }
     }
 
