@@ -14,5 +14,11 @@ pipeline {
       }
     }
 
+    stage('Quality Gate') {
+      steps {
+        sh 'mvn sonar:sonar'
+      }
+    }
+
   }
 }
