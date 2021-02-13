@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'mvn clean install'
         echo '${M2_HOME}'
       }
     }
