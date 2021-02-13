@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo '${M2_HOME}'
+        echo '\'${M2_HOME}\''
       }
     }
 
