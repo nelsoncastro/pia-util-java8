@@ -42,6 +42,9 @@ import static java.util.stream.Collectors.toSet;
  */
 public final class CollectionUtil {
 
+    public static final String PREDICATE = "predicate";
+    public static final String MAPPER = "mapper";
+
     private CollectionUtil() {
         throw new AssertionError("No CollectionUtil instances for you!");
     }
@@ -55,7 +58,7 @@ public final class CollectionUtil {
      * @return uma {@link java.util.stream.Stream}
      */
     public static <T> Stream<T> filter(Stream<T> stream, Predicate<T> predicate) {
-        return requireNonNull(stream).filter(requireNonNull(predicate, "predicate"));
+        return requireNonNull(stream).filter(requireNonNull(predicate, PREDICATE));
     }
 
     /**
@@ -67,7 +70,7 @@ public final class CollectionUtil {
      * @return a coleção filtrada
      */
     public static <T> Stream<T> filter(Collection<T> values, Predicate<T> predicate) {
-        return toStream(values).filter(requireNonNull(predicate, "predicate"));
+        return toStream(values).filter(requireNonNull(predicate, PREDICATE));
     }
 
     /**
@@ -104,7 +107,7 @@ public final class CollectionUtil {
      * @return um {@link java.util.stream.Stream}
      */
     public static <T, R> Stream<R> filterAndMap(Collection<T> values, Predicate<T> predicate, Function<T, R> mapper) {
-        return filter(values, predicate).map(requireNonNull(mapper, "mapper"));
+        return filter(values, predicate).map(requireNonNull(mapper, MAPPER));
     }
 
     /**
@@ -116,7 +119,7 @@ public final class CollectionUtil {
      * @return um {@link java.util.stream.Stream}
      */
     public static <T, R> Stream<R> map(Stream<T> values, Function<T, R> mapper) {
-        return requireNonNull(values).map(requireNonNull(mapper, "mapper"));
+        return requireNonNull(values).map(requireNonNull(mapper, MAPPER));
     }
 
     /**
@@ -128,7 +131,7 @@ public final class CollectionUtil {
      * @return um {@link java.util.stream.IntStream}
      */
     public static <T> IntStream mapToInt(Stream<T> values, ToIntFunction<? super T> mapper) {
-        return requireNonNull(values).mapToInt(requireNonNull(mapper, "mapper"));
+        return requireNonNull(values).mapToInt(requireNonNull(mapper, MAPPER));
     }
 
     /**
@@ -140,7 +143,7 @@ public final class CollectionUtil {
      * @return um {@link java.util.stream.IntStream}
      */
     public static <T> IntStream mapToInt(Collection<T> values, ToIntFunction<? super T> mapper) {
-        return toStream(values).mapToInt(requireNonNull(mapper, "mapper"));
+        return toStream(values).mapToInt(requireNonNull(mapper, MAPPER));
     }
 
     /**
@@ -152,7 +155,7 @@ public final class CollectionUtil {
      * @return um {@link java.util.stream.LongStream}
      */
     public static <T> LongStream mapToLong(Stream<T> values, ToLongFunction<? super T> mapper) {
-        return requireNonNull(values).mapToLong(requireNonNull(mapper, "mapper"));
+        return requireNonNull(values).mapToLong(requireNonNull(mapper, MAPPER));
     }
 
     /**
@@ -164,7 +167,7 @@ public final class CollectionUtil {
      * @return um {@link java.util.stream.LongStream}
      */
     public static <T> LongStream mapToLong(Collection<T> values, ToLongFunction<? super T> mapper) {
-        return toStream(values).mapToLong(requireNonNull(mapper, "mapper"));
+        return toStream(values).mapToLong(requireNonNull(mapper, MAPPER));
     }
 
     /**
@@ -176,7 +179,7 @@ public final class CollectionUtil {
      * @return um {@link java.util.stream.DoubleStream}
      */
     public static <T> DoubleStream mapToDouble(Stream<T> values, ToDoubleFunction<? super T> mapper) {
-        return requireNonNull(values).mapToDouble(requireNonNull(mapper, "mapper"));
+        return requireNonNull(values).mapToDouble(requireNonNull(mapper, MAPPER));
     }
 
     /**
@@ -188,7 +191,7 @@ public final class CollectionUtil {
      * @return um {@link java.util.stream.DoubleStream}
      */
     public static <T> DoubleStream mapToDouble(Collection<T> values, ToDoubleFunction<? super T> mapper) {
-        return toStream(values).mapToDouble(requireNonNull(mapper, "mapper"));
+        return toStream(values).mapToDouble(requireNonNull(mapper, MAPPER));
     }
 
     /**
@@ -200,7 +203,7 @@ public final class CollectionUtil {
      * @return um {@link java.util.List}
      */
     public static <T, R> List<R> mapToList(Stream<T> values, Function<T, R> mapper) {
-        return map(requireNonNull(values), requireNonNull(mapper, "mapper")).collect(toList());
+        return map(requireNonNull(values), requireNonNull(mapper, MAPPER)).collect(toList());
     }
 
     /**
@@ -212,7 +215,7 @@ public final class CollectionUtil {
      * @return um {@link java.util.stream.Stream}
      */
     public static <T, R> Stream<R> map(Collection<T> values, Function<T, R> mapper) {
-        return toStream(values).map(requireNonNull(mapper, "mapper"));
+        return toStream(values).map(requireNonNull(mapper, MAPPER));
     }
 
     /**
@@ -224,7 +227,7 @@ public final class CollectionUtil {
      * @return um {@link java.util.List}
      */
     public static <T, R> List<R> mapToList(Collection<T> values, Function<T, R> mapper) {
-        return map(toStream(values), requireNonNull(mapper, "mapper")).collect(toList());
+        return map(toStream(values), requireNonNull(mapper, MAPPER)).collect(toList());
     }
 
     /**
@@ -236,7 +239,7 @@ public final class CollectionUtil {
      * @return um {@link java.util.Set}
      */
     public static <T, R> Set<R> mapToSet(Collection<T> values, Function<T, R> mapper) {
-        return map(toStream(values), requireNonNull(mapper, "mapper")).collect(toSet());
+        return map(toStream(values), requireNonNull(mapper, MAPPER)).collect(toSet());
     }
 
     /**
@@ -321,7 +324,7 @@ public final class CollectionUtil {
      * caso contrário, retorna {@code false}
      */
     public static <T> boolean anyMatch(Collection<T> values, Predicate<T> predicate) {
-        return toStream(values).anyMatch(requireNonNull(predicate, "predicate"));
+        return toStream(values).anyMatch(requireNonNull(predicate, PREDICATE));
     }
 
     /**
@@ -334,7 +337,7 @@ public final class CollectionUtil {
      * caso contrário, retorna {@code false}
      */
     public static <T> boolean anyMatch(Stream<T> values, Predicate<T> predicate) {
-        return requireNonNull(values).anyMatch(requireNonNull(predicate, "predicate"));
+        return requireNonNull(values).anyMatch(requireNonNull(predicate, PREDICATE));
     }
 
     /* private methods */

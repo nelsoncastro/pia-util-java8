@@ -33,6 +33,9 @@ import java.util.function.*;
  */
 public final class ObjectUtil {
 
+    public static final String ACTION = "action";
+    public static final String CONDITION = "condition";
+
     private ObjectUtil() {
         throw new AssertionError("No ObjectUtil instances for you!");
     }
@@ -45,7 +48,7 @@ public final class ObjectUtil {
      * @param <T>    Tipo do objeto
      */
     public static <T> void nonNull(T object, Consumer<T> action) {
-        Objects.requireNonNull(action, "action");
+        Objects.requireNonNull(action, ACTION);
         if (Objects.nonNull(object))
             action.accept(object);
     }
@@ -72,7 +75,7 @@ public final class ObjectUtil {
      * @param <T>    Tipo da referência
      */
     public static <T> void isNull(T object, Consumer<T> action) {
-        Objects.requireNonNull(action, "action");
+        Objects.requireNonNull(action, ACTION);
         if (Objects.isNull(object))
             action.accept(object);
     }
@@ -101,8 +104,8 @@ public final class ObjectUtil {
      * @param <T>       Tipo do objeto
      */
     public static <T> void isTrue(T object, Predicate<T> condition, Consumer<T> action) {
-        Objects.requireNonNull(condition, "condition");
-        Objects.requireNonNull(action, "action");
+        Objects.requireNonNull(condition, CONDITION);
+        Objects.requireNonNull(action, ACTION);
         if (condition.test(object))
             action.accept(object);
     }
@@ -117,8 +120,8 @@ public final class ObjectUtil {
      * @param <T>       Tipo do objeto
      */
     public static <T> void isFalse(T object, Predicate<T> condition, Consumer<T> action) {
-        Objects.requireNonNull(condition, "condition");
-        Objects.requireNonNull(action, "action");
+        Objects.requireNonNull(condition, CONDITION);
+        Objects.requireNonNull(action, ACTION);
         if (!condition.test(object))
             action.accept(object);
     }
@@ -135,8 +138,8 @@ public final class ObjectUtil {
      * @param <U>       Tipo do segundo objeto informado
      */
     public static <T, U> void isTrue(T a, U b, BiPredicate<T, U> condition, BiConsumer<T, U> action) {
-        Objects.requireNonNull(condition, "condition");
-        Objects.requireNonNull(action, "action");
+        Objects.requireNonNull(condition, CONDITION);
+        Objects.requireNonNull(action, ACTION);
         if (condition.test(a, b))
             action.accept(a, b);
     }
@@ -153,8 +156,8 @@ public final class ObjectUtil {
      * @param <U>       Tipo do segundo objeto informado
      */
     public static <T, U> void isFalse(T a, U b, BiPredicate<T, U> condition, BiConsumer<T, U> action) {
-        Objects.requireNonNull(condition, "condition");
-        Objects.requireNonNull(action, "action");
+        Objects.requireNonNull(condition, CONDITION);
+        Objects.requireNonNull(action, ACTION);
         if (!condition.test(a, b))
             action.accept(a, b);
     }
@@ -169,7 +172,7 @@ public final class ObjectUtil {
      * @param <T>             Tipo da referência
      */
     public static <T> void isTrue(T object, Predicate<T> condition, Supplier<String> messageSupplier) {
-        Objects.requireNonNull(condition, "condition");
+        Objects.requireNonNull(condition, CONDITION);
         if (condition.test(object))
             BusinessException.throwMessage(messageSupplier.get());
     }
@@ -184,7 +187,7 @@ public final class ObjectUtil {
      * @param <T>             Tipo da referência
      */
     public static <T> void isFalse(T object, Predicate<T> condition, Supplier<String> messageSupplier) {
-        Objects.requireNonNull(condition, "condition");
+        Objects.requireNonNull(condition, CONDITION);
         if (!condition.test(object))
             BusinessException.throwMessage(messageSupplier.get());
     }

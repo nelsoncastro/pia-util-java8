@@ -40,6 +40,8 @@ import static java.util.Objects.requireNonNull;
  */
 public final class DateUtil {
 
+    public static final String LOCAL_DATE = "localDate";
+
     private DateUtil() {
         throw new AssertionError("No DateUtil instances for you!");
     }
@@ -77,7 +79,7 @@ public final class DateUtil {
      * @return {@link java.util.Date}
      */
     public static Date localDateToDate(LocalDate localDate) {
-        requireNonNull(localDate, "localDate");
+        requireNonNull(localDate, LOCAL_DATE);
         return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
 
@@ -174,7 +176,7 @@ public final class DateUtil {
      * @return data/hora formata
      */
     private static String formatLocalDateTime(LocalDateTime localDateTime, FormatStyle style) {
-        requireNonNull(localDateTime, "localDate");
+        requireNonNull(localDateTime, LOCAL_DATE);
         requireNonNull(style, "style");
         return localDateTime.format(DateTimeFormatter.ofLocalizedDate(style).withLocale(getDefaultLocale()));
     }
@@ -187,7 +189,7 @@ public final class DateUtil {
      * @return data formata
      */
     private static String formatLocalDate(LocalDate localDate, FormatStyle style) {
-        requireNonNull(localDate, "localDate");
+        requireNonNull(localDate, LOCAL_DATE);
         requireNonNull(style, "style");
         return localDate.format(DateTimeFormatter.ofLocalizedDate(style).withLocale(getDefaultLocale()));
     }
