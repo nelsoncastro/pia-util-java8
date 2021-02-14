@@ -8,7 +8,7 @@ pipeline {
       }
     }
 
-    stage('Quality Gate') {
+    stage('SonarQube analysis') {
       steps {
         withSonarQubeEnv('default') {
           sh 'mvn sonar:sonar'
@@ -17,9 +17,12 @@ pipeline {
       }
     }
 
-    stage('Quality Gate Result') {
+    stage('Quality Gate') {
       steps {
-        waitForQualityGate true
+        timeout(time: 5, unit: 'MINUTES') {
+          waitForQualityGate true
+        }
+
       }
     }
 
