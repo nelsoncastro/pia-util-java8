@@ -23,5 +23,10 @@ pipeline {
         waitForQualityGate true
       }
     }
+    stage('Release') {
+      steps {
+        sh 'mvn release:prepare'
+      }
+    }
   }
 }
